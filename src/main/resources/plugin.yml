@@ -1,0 +1,26 @@
+name: Vault
+main: net.milkbowl.vault.Vault
+version: ${project.version}
+authors: [cereal, Sleaker, mung3r, Hydrox]
+soft-depend: [DroxPerms, BOSEconomy]
+website: https://github.com/hydrox/EscapeTheVault
+load: startup
+description: >
+             Abstraction Library for Bukkit Plugins
+commands:
+  vault-info:
+    description: Displays information about Vault 
+    usage: |
+           /<command> - Displays Vault information
+  vault-reload:
+    description: Reloads Vault
+    usage: |
+           /<command> - Reloads Vault
+  vault-convert:
+    description: Converts all data in economy1 and dumps it into economy2
+    usage: |
+           /<command> [economy1] [economy2]
+permissions:
+  vault.admin:
+    description: Notifies the player when vault is in need of an update.
+    default: op

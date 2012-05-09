@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.hydrox.bukkit</groupId>
+  <artifactId>EscapeTheVault</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>EscapTheVault</name>
+  <url>https://github.com/hydrox/EscapeTheVault</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <!-- Repository for Bukkit -->
+    <repository>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/content/repositories/releases/</url>
+    </repository>
+  </repositories>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/assembly/package.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>build</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>${basedir}/src/main/resources/</directory>
+      </resource>
+    </resources>
+  </build>
+  <dependencies>
+	<dependency>
+		<groupId>org.bukkit</groupId>
+		<artifactId>bukkit</artifactId>
+		<version>1.2.5-R1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>de.hydrox.bukkit</groupId>
+		<artifactId>DroxPerms</artifactId>
+		<version>0.3.1</version>
+	</dependency>
+	<dependency>
+		<groupId>cosine.boseconomy.BOSEconomy</groupId>
+		<artifactId>BOSEconomy</artifactId>
+		<version>0.7.3</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/BOSEconomy7.jar</systemPath>
+	</dependency>
+  </dependencies>
+</project>
