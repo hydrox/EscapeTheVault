@@ -2,6 +2,8 @@ package de.hydrox.bukkit.EscapeTheVault.permission.plugins;
 
 import java.util.ArrayList;
 
+import org.bukkit.entity.Player;
+
 import net.milkbowl.vault.Vault;
 import net.milkbowl.vault.permission.Permission;
 import de.hydrox.bukkit.DroxPerms.DroxPerms;
@@ -42,8 +44,8 @@ public class Permission_DroxPerms extends Permission {
 
 	@Override
 	public boolean playerHas(String world, String player, String permission) {
-		// TODO Auto-generated method stub
-		return false;
+		Player p = plugin.getServer().getPlayer(player);
+		return p != null ? p.hasPermission(permission) : false;
 	}
 
 	@Override
@@ -58,8 +60,7 @@ public class Permission_DroxPerms extends Permission {
 
 	@Override
 	public boolean groupHas(String world, String group, String permission) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException(getName() + " no groupHas.");
 	}
 
 	@Override
@@ -101,8 +102,7 @@ public class Permission_DroxPerms extends Permission {
 
 	@Override
 	public String[] getGroups() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[0];
 	}
 
 }
